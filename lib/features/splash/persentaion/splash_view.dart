@@ -11,25 +11,67 @@ class SplashView extends StatefulWidget {
   State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashViewState extends State<SplashView> {
+class _SplashViewState extends State<SplashView>
+    with SingleTickerProviderStateMixin {
+  late Animation<RelativeRect> _animation;
+  late AnimationController _controller;
+
   @override
   void initState() {
-    Future.delayed(
-      Duration(seconds: 3),
-      () {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => OnboardingView()));
-      },
-    );
     super.initState();
+    controlAnimation();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    excuteAnimation();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Constants.kPrimaryColor,
-      body: SplahViewBody(),
+      body: Stack(children: [
+        PositionedTransition(rect: _animation, child: SplahViewBody()),
+      ]),
     );
   }
-}
 
+
+  void controlAnimation() {
+     _controller = AnimationController(
+      duration: Duration(seconds: 2),
+      vsync: this,
+    );
+    
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        // Navigate to the OnboardingView after the animation is done
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => OnboardingView()),
+        );
+      }
+    });
+  }
+void excuteAnimation() {
+     final screenHeight = MediaQuery.of(context).size.height;
+    _animation = RelativeRectTween(
+      begin:
+          RelativeRect.fromLTRB(0, screenHeight, 0, 0), // Start from the bottom
+      end: RelativeRect.fromLTRB(0, screenHeight / 2 - 50, 0,
+          screenHeight / 2 - 50), // Move to the center
+    ).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+    _controller.forward();
+  }
+
+}

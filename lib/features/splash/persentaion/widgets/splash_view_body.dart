@@ -10,10 +10,8 @@ class SplahViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32),
-      child: Center(
-        child: Image.asset(
-          Images.splashImageLogo,
-        ),
+      child: Image.asset(
+        Images.splashImageLogo,
       ),
     );
   }
