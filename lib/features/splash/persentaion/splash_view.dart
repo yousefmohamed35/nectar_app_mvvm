@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nectarappmvvm/constants.dart';
-import 'package:nectarappmvvm/core/utils/images.dart';
 import 'package:nectarappmvvm/features/onboarding/persentation/views/onboarding_view.dart';
+
+import 'widgets/splash_view_body.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -27,14 +28,8 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Constants.kPrimaryColor,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
-        child: Center(
-          child: Image.asset(
-            Images.splashImageLogo,
-          ),
-        ),
-      ),
+      body: SplahViewBody(),
     );
   }
 }
+
