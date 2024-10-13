@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 abstract class Constants {
-  static const String primaryColor = '0xff53B175';
+  static const Color kPrimaryColor = Color(0xff53B175);
 }
