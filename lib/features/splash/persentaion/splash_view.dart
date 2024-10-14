@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nectarappmvvm/constants.dart';
 import 'package:nectarappmvvm/features/onboarding/persentation/views/onboarding_view.dart';
-
 import 'widgets/splash_view_body.dart';
 
 class SplashView extends StatefulWidget {
