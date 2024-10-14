@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nectarappmvvm/constants.dart';
+import 'package:nectarappmvvm/core/database/cache/cache_helper.dart';
+import 'package:nectarappmvvm/core/database/cache/cache_keys.dart';
+import 'package:nectarappmvvm/core/service/services_locator.dart';
 import 'package:nectarappmvvm/core/utils/app_route.dart';
 import 'widgets/splash_view_body.dart';
 
@@ -53,9 +56,15 @@ class _SplashViewState extends State<SplashView>
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         // Navigate to the OnboardingView after the animation is done
-        GoRouter.of(context).pushReplacement(AppRoute.kOnboardingView);
+       navigationexecution();
       }
     });
+  }
+
+  void navigationexecution() {
+     getit<CacheHelper>().getBool(CacheKeys.onbordingVisited) ?? false
+         ? GoRouter.of(context).pushReplacement(AppRoute.kOnboardingView)
+         : GoRouter.of(context).pushReplacement(AppRoute.kLoginView);
   }
 
   void excuteAnimation() {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nectarappmvvm/core/database/cache/cache_helper.dart';
+import 'package:nectarappmvvm/core/database/cache/cache_keys.dart';
+import 'package:nectarappmvvm/core/service/services_locator.dart';
 import 'package:nectarappmvvm/core/utils/app_route.dart';
 import 'package:nectarappmvvm/core/utils/images.dart';
 import 'package:nectarappmvvm/core/utils/styles.dart';
@@ -47,7 +50,10 @@ class OnboardingViewBody extends StatelessWidget {
             ),
             CustomButton(
               text: 'Get Started',
-              onTap: () => GoRouter.of(context).push(AppRoute.kLoginView),
+              onTap: () {
+                getit<CacheHelper>().setBool(CacheKeys.onbordingVisited, true);
+                GoRouter.of(context).push(AppRoute.kLoginView);
+              },
             ),
             SizedBox(
               height: 100,
