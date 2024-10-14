@@ -63,8 +63,8 @@ class _SplashViewState extends State<SplashView>
 
   void navigationexecution() {
      getit<CacheHelper>().getBool(CacheKeys.onbordingVisited) ?? false
-         ? GoRouter.of(context).pushReplacement(AppRoute.kOnboardingView)
-         : GoRouter.of(context).pushReplacement(AppRoute.kLoginView);
+         ? GoRouter.of(context).pushReplacement(AppRoute.kLoginView)
+         : GoRouter.of(context).pushReplacement(AppRoute.kOnboardingView);
   }
 
   void excuteAnimation() {
