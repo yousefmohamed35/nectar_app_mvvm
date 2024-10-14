@@ -60,6 +60,7 @@ class _SplashViewState extends State<SplashView>
       }
     });
   }
+  
 
   void navigationexecution() {
      getit<CacheHelper>().getBool(CacheKeys.onbordingVisited) ?? false
