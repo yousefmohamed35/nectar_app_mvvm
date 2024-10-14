@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nectarappmvvm/constants.dart';
+import 'package:nectarappmvvm/core/utils/app_route.dart';
 import 'package:nectarappmvvm/features/onboarding/persentation/views/onboarding_view.dart';
 import 'widgets/splash_view_body.dart';
 
@@ -43,25 +45,22 @@ class _SplashViewState extends State<SplashView>
     );
   }
 
-
   void controlAnimation() {
-     _controller = AnimationController(
+    _controller = AnimationController(
       duration: Duration(seconds: 2),
       vsync: this,
     );
-    
+
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         // Navigate to the OnboardingView after the animation is done
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => OnboardingView()),
-        );
+        GoRouter.of(context).pushReplacement(AppRoute.konboardingView);
       }
     });
   }
-void excuteAnimation() {
-     final screenHeight = MediaQuery.of(context).size.height;
+
+  void excuteAnimation() {
+    final screenHeight = MediaQuery.of(context).size.height;
     _animation = RelativeRectTween(
       begin:
           RelativeRect.fromLTRB(0, screenHeight, 0, 0), // Start from the bottom
@@ -72,5 +71,4 @@ void excuteAnimation() {
     );
     _controller.forward();
   }
-
 }

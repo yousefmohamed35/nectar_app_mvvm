@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nectarappmvvm/constants.dart';
 import 'package:nectarappmvvm/core/utils/images.dart';
 import 'package:nectarappmvvm/core/utils/styles.dart';
+import 'package:nectarappmvvm/core/utils/widgets/custom_button.dart';
 
 class OnboardingViewBody extends StatelessWidget {
   const OnboardingViewBody({super.key});
@@ -43,7 +44,9 @@ class OnboardingViewBody extends StatelessWidget {
             SizedBox(
               height: 32,
             ),
-            CustomButton(),
+            CustomButton(
+              text: 'Get Started',
+            ),
             SizedBox(
               height: 100,
             )
@@ -53,4 +56,3 @@ class OnboardingViewBody extends StatelessWidget {
     );
   }
 }
-
