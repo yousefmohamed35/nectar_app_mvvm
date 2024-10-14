@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nectarappmvvm/constants.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nectarappmvvm/core/utils/app_route.dart';
 import 'package:nectarappmvvm/core/utils/images.dart';
 import 'package:nectarappmvvm/core/utils/styles.dart';
 import 'package:nectarappmvvm/core/utils/widgets/custom_button.dart';
@@ -46,6 +47,7 @@ class OnboardingViewBody extends StatelessWidget {
             ),
             CustomButton(
               text: 'Get Started',
+              onTap: () => GoRouter.of(context).push(AppRoute.kLoginView),
             ),
             SizedBox(
               height: 100,

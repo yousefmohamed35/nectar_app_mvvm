@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nectarappmvvm/constants.dart';
 import 'package:nectarappmvvm/core/utils/app_route.dart';
-import 'package:nectarappmvvm/features/onboarding/persentation/views/onboarding_view.dart';
 import 'widgets/splash_view_body.dart';
 
 class SplashView extends StatefulWidget {
@@ -54,7 +53,7 @@ class _SplashViewState extends State<SplashView>
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         // Navigate to the OnboardingView after the animation is done
-        GoRouter.of(context).pushReplacement(AppRoute.konboardingView);
+        GoRouter.of(context).pushReplacement(AppRoute.kOnboardingView);
       }
     });
   }
