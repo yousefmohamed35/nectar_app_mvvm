@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nectarappmvvm/constants.dart';
 import 'package:nectarappmvvm/core/utils/images.dart';
 import 'package:nectarappmvvm/core/utils/styles.dart';
-import 'package:nectarappmvvm/core/utils/widgets/custom_button.dart';
 import 'package:nectarappmvvm/core/utils/widgets/custom_text_button.dart';
-import 'package:nectarappmvvm/features/Auth/persentation/views/widgets/email_text_form_field.dart';
-import 'package:nectarappmvvm/features/Auth/persentation/views/widgets/password_text_form_field.dart';
 import 'package:nectarappmvvm/features/Auth/persentation/views/widgets/login_form.dart';
 
 class LoginViewBody extends StatelessWidget {
