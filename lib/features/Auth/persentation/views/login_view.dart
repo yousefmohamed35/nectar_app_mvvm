@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nectarappmvvm/constants.dart';
 import 'package:nectarappmvvm/core/utils/images.dart';
 import 'package:nectarappmvvm/core/utils/styles.dart';
+import 'package:nectarappmvvm/core/utils/widgets/password_text_form_field.dart';
 
-import 'widgets/email_text_form_field.dart';
+import '../../../../core/utils/widgets/email_text_form_field.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -40,13 +41,27 @@ class LoginView extends StatelessWidget {
               style: Styles.textStyle16,
             ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             Text(
               "Email",
               style: Styles.textStyle16,
             ),
-            EmailTextFormField()
+            SizedBox(
+              height: 8,
+            ),
+            EmailTextFormField(),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Password",
+              style: Styles.textStyle16,
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            PasswordTextFormField(),
           ],
         ),
       ),
