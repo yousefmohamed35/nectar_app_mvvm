@@ -3,7 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:nectarappmvvm/core/utils/images.dart';
 import 'package:nectarappmvvm/core/utils/styles.dart';
 import 'package:nectarappmvvm/core/utils/widgets/custom_button.dart';
+import 'package:nectarappmvvm/features/Auth/persentation/views/widgets/custom_appbar.dart';
 import 'package:nectarappmvvm/features/Auth/persentation/views/widgets/email_text_form_field.dart';
+import 'package:nectarappmvvm/features/Auth/persentation/views/widgets/forget_password_form.dart';
 
 class ForgetPasswordView extends StatelessWidget {
   const ForgetPasswordView({super.key});
@@ -59,16 +61,9 @@ class ForgetPasswordViewBody extends StatelessWidget {
           SizedBox(
             height: 8,
           ),
-          EmailTextFormField(),
-          SizedBox(
-            height: 60,
-          ),
-          CustomButton(
-            text: 'Continue',
-          )
+          ForgetPasswordForm()
         ],
       ),
     );
   }
 }
-
